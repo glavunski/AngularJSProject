@@ -2,8 +2,16 @@
 
 app.factory('adsService',
     function ($resource, baseServiceUrl) {
+        var resource = $resource(
+            baseServiceUrl + '/api/ads/',
+            null,
+            {getAll : {method:'GET'}}
+        );
+
         return {
-            // TODO: implement a service to get ads
+            getAds: function(params, success, error) {
+                return resource.getAll(params, success, error);
+            }
         };
     }
 );
