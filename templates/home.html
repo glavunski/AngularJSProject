@@ -2,7 +2,13 @@
 <div id="ad" ng-repeat="ad in ads.ads" class="panel panel-default">
     <div class="panel-heading">{{ad.title}}</div>
     <div class="panel-body">
-        <img ng-src="{{ad.imageDataUrl}}">
+        <div ng-if="ad.imageDataUrl != null" class="row">
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img ng-src="{{ad.imageDataUrl}}" >
+                </a>
+            </div>
+        </div>
         <p><strong>{{ad.text}}</strong></p>
         <p><strong>{{ad.date | date: "d-MMM-yyyy"}}</strong></p>
     </div>
