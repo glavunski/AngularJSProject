@@ -18,16 +18,32 @@ app.factory('adsService',
 
 app.factory('townsService',
     function ($resource, baseServiceUrl) {
+        var resource = $resource(
+            baseServiceUrl + '/api/towns',
+            null,
+            {getAll : {method:'GET'}}
+        );
+
         return {
-            // TODO: implement a service to get towns
+            getTowns: function(success, error) {
+                return resource.query(success, error);
+            }
         };
     }
 );
 
 app.factory('categoriesService',
     function ($resource, baseServiceUrl) {
+        var resource = $resource(
+            baseServiceUrl + '/api/categories',
+            null,
+            {getAll : {method:'GET'}}
+        );
+
         return {
-            // TODO: implement a service to get categories
+            getCategories: function(success, error) {
+                return resource.query(success, error);
+            }
         };
     }
 );

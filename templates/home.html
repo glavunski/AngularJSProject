@@ -1,15 +1,42 @@
-<h2>Home Screen</h2>
-<div id="ad" ng-repeat="ad in ads.ads" class="panel panel-default">
-    <div class="panel-heading">{{ad.title}}</div>
-    <div class="panel-body">
+<nav>
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+
+        <li ng-repeat="i in getNumber(ads.numItems ) track by $index">
+            <a href="#">{{$index+1}}</a>
+        </li>
+
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div id="ad" ng-repeat="ad in ads.ads" class="panel panel-primary">
+    <div class="panel-heading">
+            <h3 class="panel-title">{{ad.title}}</h3>
+            <div class="navbar-text navbar-right">{{ad.date | date: "d-MMM-yyyy"}}</div>
+    </div>
+
+    <div class="panel-body ">
+
         <div ng-if="ad.imageDataUrl != null" class="row">
             <div class="col-xs-6 col-md-3">
                 <a href="#" class="thumbnail">
-                    <img ng-src="{{ad.imageDataUrl}}" >
+                    <img ng-src="{{ad.imageDataUrl}}" class="image-box" >
                 </a>
             </div>
         </div>
-        <p><strong>{{ad.text}}</strong></p>
-        <p><strong>{{ad.date | date: "d-MMM-yyyy"}}</strong></p>
+
+        <div class="dl-horizontal">{{ad.text}}</div>
     </div>
 </div>
+<div ng-if="ads.ads.length == 0">
+    No ads found
+</div>
+
