@@ -22,9 +22,29 @@ app.config(function ($routeProvider){
         controller: 'RegisterController'
     });
 
+    $routeProvider.when('/user/profile', {
+        templateUrl: 'templates/user/profile.html',
+        controller: 'UserProfileController'
+    });
+
+    $routeProvider.when('/user/ads', {
+        templateUrl: 'templates/home.html',
+        controller: 'UserAdsController'
+    });
+
     $routeProvider.when('/user/ads/publish', {
         templateUrl: 'templates/user/publish-new-ad.html',
         controller: 'UserPublishNewAdController'
+    });
+
+    $routeProvider.when('/user/ads/edit/:id', {
+        templateUrl: 'templates/user/edit-ad.html',
+        controller: 'UserEditAdController'
+    });
+
+    $routeProvider.when('/admin/users', {
+        templateUrl: 'templates/admin/admin-panel.html',
+        controller: 'AdminController'
     });
 
     $routeProvider.otherwise(

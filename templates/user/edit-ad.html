@@ -1,0 +1,63 @@
+<div class="box">
+    <h2>Edit Ad</h2>
+    <table class="table table-user-information" >
+        <tbody>
+        <tr>
+            <td>Title:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="text" class="form-control" ng-value="adData.title" ng-model="adData.title" aria-describedby="sizing-addon3">
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Text:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="text" class="form-control" ng-value="adData.text" ng-model="adData.text" aria-describedby="sizing-addon3">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>
+                <select id="category" ng-model="adData.categoryId">
+                    <option value="null">(None)</option>
+                    <option ng-repeat="c in categories" ng-selected="adData.categoryId == c.id" value="{{c.id}}">{{c.name}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Town name:</td>
+            <td>
+                <select id="town" ng-model="adData.townId">
+                    <option value="null">(None)</option>
+                    <option  ng-repeat="town in towns" ng-selected="town.id == profile.townId"
+                             value="{{town.id}}" >{{town.name}}
+                    </option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="checkbox">
+        <label><input type="checkbox" ng-model="adData.ChangeImage" >Change image?</label>
+    </div>
+
+    <p ng-if="adData.ChangeImage">
+        <label for="image">Image:</label>
+        <input type="file" id="image" onchange="angular.element(this).scope().fileSelected(this)" />
+    <div class="image-box" ng-if="adData.ChangeImage">
+        <p>Image Preview</p>
+    </div>
+
+
+    <p>
+        <a ng-click="editAd(adData)" class="button">Edit Ad</a>
+        <a ng-click="deactivateAd()" class="button">Deactivate Ad</a>
+        <a ng-click="publishAdAgain()" class="button">Publish Ad again</a>
+        <a ng-click="deleteAd()" class="button">Delete Ad</a>
+        <a href="#/user/ads" class="button">Cancel</a>
+    <p>
+</div>

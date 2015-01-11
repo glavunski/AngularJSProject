@@ -6,7 +6,7 @@
     <ul class="nav navbar-nav navbar-right">
         <li ng-if="authService.isAnonymous()"><a href="#/login">Login</a></li>
         <li ng-if="authService.isAnonymous()"><a href="#/register">Register</a></li>
-        <li ng-if="authService.isAdmin()"><a href="#/login">Admin</a></li>
+        <li ng-if="authService.isAdmin()"><a href="javascript:void(0)">Admin</a></li>
         <li ng-if="authService.isLoggedIn()" ng-click="logout()"><a>Logout</a></li>
     </ul>
 

@@ -1,19 +1,35 @@
 'use strict';
 
 app.factory('adsService',
-    function ($resource, baseServiceUrl) {
+    function ($resource, baseServiceUrl,authService) {
         var resource = $resource(
-            baseServiceUrl + '/api/ads/',
-            null,
-            {getAll : {method:'GET'}}
+            baseServiceUrl + '/api/ads/:id',
+            {id : '@id'},
+            {getAll : {method:'GET'}
+            }
         );
+        var userResource = $resource(
+            baseServiceUrl +'/api/user/ads/:id',
+            {
+                id: '@id'
+            }, {
+                update: {
+                    method: 'PUT'
+                }
+            });
 
         return {
-            getAds: function(params, success, error) {
-                return resource.getAll(params, success, error);
+                getAds: function(params, success, error) {
+                    return resource.getAll(params, success, error);
+                },
+                getSingle: function(id) {
+                    return userResource.get({
+                        id: id
+                    });
             }
-        };
-    }
+            }
+        }
+
 );
 
 app.factory('townsService',

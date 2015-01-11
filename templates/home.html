@@ -1,35 +1,35 @@
 <nav id="pagination">
     <ul class="pagination">
         <li>
-            <a href="#/" aria-label="First"  ng-click="loadPage(1)">
+            <a href="javascript:void(0)" aria-label="First"  ng-click="loadPage(1)">
                 <span aria-hidden="true">First</span>
             </a>
         </li>
 
         <li ng-class="{'disabled': adsParams.startPage - 1 == 0}">
-            <a href="#/" aria-label="Previous"  ng-click="loadPage(adsParams.startPage-1)">
+            <a href="javascript:void(0)" aria-label="Previous"  ng-click="loadPage(adsParams.startPage-1)">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
 
         <li ng-repeat="i in pagesArray" ng-class="{'active': i == adsParams.startPage}" >
-            <a href="#/" ng-click="loadPage(i)">{{i}}</a>
+            <a href="javascript:void(0)" ng-click="loadPage(i)">{{i}}</a>
         </li>
 
         <li ng-class="{'disabled': adsParams.startPage + 1 == allPages + 1 }">
-            <a href="#/" aria-label="Next" ng-click="loadPage(adsParams.startPage+1)">
+            <a href="javascript:void(0)" aria-label="Next" ng-click="loadPage(adsParams.startPage+1)">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
 
         <li>
-            <a href="#/" aria-label="Last"  ng-click="loadPage(allPages)">
+            <a href="javascript:void(0)" aria-label="Last"  ng-click="loadPage(allPages)">
                 <span aria-hidden="true">Last</span>
             </a>
         </li>
     </ul>
 </nav>
-<div id="ad" ng-repeat="ad in ads.ads" class="box">
+<div id="ad" ng-repeat="ad in ads" class="box">
     <div class="row">
             <h2 class="col-xs-4">{{ad.title}}</h2>
             <div class="col-xs-8 text-right">{{ad.date | date: "d-MMM-yyyy"}}</div>
@@ -43,20 +43,25 @@
         <div class="col-xs-9">
             <div class="adcontent">{{ad.text}}</div>
         </div>
-        <div class="col-xs-9">
+        <div class="col-xs-9" ng-if="ad.ownerName != undefined">
             <strong>Name : </strong>{{ad.ownerName}}
         </div>
-        <div class="col-xs-9">
+        <div class="col-xs-9" ng-if="ad.ownerEmail != undefined">
             <strong>Email : </strong>{{ad.ownerEmail}}
         </div>
-        <div class="col-xs-9">
+        <div class="col-xs-9" ng-if="ad.ownerPhone != undefined">
             <strong>Tel : </strong>{{ad.ownerPhone}}
         </div>
+    </div>
+    <div class="row" ng-if="ad.ownerName == undefined && ad.ownerEmail == undefined && ad.ownerPhone == undefined">
+       <div class="col-xs-12 text-right">
+           <a href="#/user/ads/edit/{{ad.id}}">Edit</a>
+       </div>
     </div>
 
 
 </div>
-<div ng-if="ads.ads.length == 0">
+<div ng-if="ads.length == 0">
     No ads found
 </div>
 

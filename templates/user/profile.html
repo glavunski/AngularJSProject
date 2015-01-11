@@ -1,0 +1,87 @@
+<div class="box" >
+    <h2>Profile</h2>
+    <table class="table table-user-information" >
+        <tbody>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="text" class="form-control" ng-model="profile.name"  aria-describedby="sizing-addon3">
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Phone number:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="text" class="form-control"  ng-model="profile.phoneNumber" aria-describedby="sizing-addon3">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="text" class="form-control"  ng-model="profile.email" aria-describedby="sizing-addon3">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Town name</td>
+            <td>
+                <select id="town" ng-model="profile.townId">
+                    <option value="null">(None)</option>
+                    <option ng-repeat="town in towns" ng-selected="town.id == profile.townId">
+                        {{town.name}}
+                    </option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <a ng-click="editUser(profile)" class="button">Update Profile</a>
+        <a href="#/" class="link">Cancel</a>
+    <p>
+</div>
+<div class="box" >
+    <h2>Change password</h2>
+    <table class="table table-user-information" >
+        <tbody>
+        <tr>
+            <td>Old Password:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="password" class="form-control" ng-model="pass.oldPassword"  aria-describedby="sizing-addon3">
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>New Password:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="password" class="form-control" ng-model="pass.newPassword"  aria-describedby="sizing-addon3">
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Change Password:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="password" class="form-control"  ng-model="pass.confirmPassword" aria-describedby="sizing-addon3">
+                </div>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <p>
+        <a ng-click="changePassword(pass)" class="button">Change password</a>
+        <a href="#/" class="link">Cancel</a>
+    <p>
+</div>

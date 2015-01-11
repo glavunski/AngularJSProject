@@ -12,7 +12,8 @@ app.controller('HomeController',
             adsService.getAds(
                 $scope.adsParams,
                 function(data){
-                    $scope.ads = data;
+                    $scope.data = data;
+                    $scope.ads = data.ads;
                     calculatePages();
                 },
                 function(error){
@@ -22,7 +23,7 @@ app.controller('HomeController',
         }
 
         function calculatePages(){
-            var allPages = Math.round($scope.ads.numItems / 2);
+            var allPages = Math.round($scope.data.numItems / 2);
             $scope.allPages = allPages;
             var pagesArray = [];
             var maxPage = $scope.adsParams.startPage + pagesNum - 1;
