@@ -43,8 +43,13 @@ app.config(function ($routeProvider){
     });
 
     $routeProvider.when('/admin/users', {
-        templateUrl: 'templates/admin/admin-panel.html',
+        templateUrl: 'templates/admin/user-list.html',
         controller: 'AdminController'
+    });
+
+    $routeProvider.when('/admin/users/edit/:id', {
+        templateUrl: 'templates/admin/admin-edit-user.html',
+        controller: 'AdminEditUserController'
     });
 
     $routeProvider.otherwise(

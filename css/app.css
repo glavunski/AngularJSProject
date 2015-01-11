@@ -187,3 +187,9 @@ ul.sidebar-menu li a, ul.sidebar-menu li a:focus {
     border: 1px dotted darkgreen;
     background-color: #C5E0B4;
 }
+
+#user-table > tbody > tr:hover{
+    background-color: #A9D18E;
+    color:#eeeeee;
+    cursor: pointer;
+}

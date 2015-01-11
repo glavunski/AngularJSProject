@@ -3495,7 +3495,7 @@ tbody.collapse.in {
   position: relative;
   z-index: 2;
   float: left;
-  width: 100%;
+  width: 200px;
   margin-bottom: 0;
 }
 .input-group-lg > .form-control,
@@ -4171,7 +4171,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: none;
 }
 .navbar-default .navbar-text {
-  color: #507E32;
+  color: ##A9D18E;
 }
 .navbar-default .navbar-nav > li > a {
   color: #A9D18E;

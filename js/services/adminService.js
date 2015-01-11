@@ -3,12 +3,29 @@
 app.factory('adminService',
     function ($http, baseServiceUrl, authService) {
         return {
-            createNewAd: function (adData, success, error) {
+            getAllUsers: function (filter, success, error) {
                 var request = {
-                    method: 'POST',
-                    url: baseServiceUrl + '/api/user/ads',
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/admin/Users/',
                     headers: authService.getAuthHeaders(),
-                    data: adData
+                    data: filter
+                };
+                $http(request).success(success).error(error);
+            },
+            getUserById : function(id,success,error){
+                var request = {
+                    method: 'GET',
+                    url: baseServiceUrl + '/api/admin/Users/' + id,
+                    headers: authService.getAuthHeaders()
+                };
+                $http(request).success(success).error(error);
+            },
+            editUserProfile : function(username,data,success,error){
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/admin/User/' + username,
+                    headers: authService.getAuthHeaders(),
+                    data : data
                 };
                 $http(request).success(success).error(error);
             }

@@ -1,0 +1,95 @@
+<div class="box" >
+    <div class="row">
+        <div class="col-xs-4">
+            <h2>Profile</h2>
+        </div>
+        <div class="col-xs-8">
+            <div class="panel-title text-right" ><strong>{{profile.userName}}</strong></div>
+        </div>
+    </div>
+    <table class="table table-user-information" >
+        <tbody>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="text" class="form-control" ng-model="profile.name"  aria-describedby="sizing-addon3">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Phone number:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="text" class="form-control"  ng-model="profile.phoneNumber" aria-describedby="sizing-addon3">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="text" class="form-control"  ng-model="profile.email" aria-describedby="sizing-addon3">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Town name</td>
+            <td>
+                <select id="town" ng-model="profile.townId">
+                    <option value="null">(None)</option>
+                    <option ng-repeat="town in towns" ng-selected="town.id == profile.townId">
+                        {{town.name}}
+                    </option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="checkbox">
+        <label><input type="checkbox" ng-model="profile.isAdmin" ng-checked="profile.isAdmin">Is admin?</label>
+    </div>
+    <p>
+        <a ng-click="editUser(profile.userName,profile)" class="button">Update Profile</a>
+        <a href="#/" class="link">Cancel</a>
+    <p>
+</div>
+<div class="box" >
+    <h2>Change password</h2>
+    <table class="table table-user-information" >
+        <tbody>
+        <tr>
+            <td>Old Password:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="password" class="form-control" ng-model="pass.oldPassword"  aria-describedby="sizing-addon3">
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>New Password:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="password" class="form-control" ng-model="pass.newPassword"  aria-describedby="sizing-addon3">
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Change Password:</td>
+            <td>
+                <div class="input-group  input-group-sm">
+                    <input type="password" class="form-control"  ng-model="pass.confirmPassword" aria-describedby="sizing-addon3">
+                </div>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <p>
+        <a ng-click="changePassword(pass)" class="button">Change password</a>
+        <a href="#/" class="link">Cancel</a>
+    <p>
+</div>

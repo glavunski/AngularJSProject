@@ -1,0 +1,20 @@
+<table class="table" id="user-table">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Phone number</th>
+        <th>Town Name</th>
+        <th>Is Admin</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in users" ng-click="loadUser(user.id)">
+        <td>{{user.username}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.phoneNumber}}</td>
+        <td>{{user.townName}}</td>
+        <td>{{user.isAdmin ? "yes" : "no"}}</td>
+    </tr>
+    </tbody>
+</table>
