@@ -7,12 +7,6 @@
     </ul>
 </div>
 
-<div class="box" ng-if="authService.isAnonymous()">
-    <p>To publish a new ad, please login.</p>
-    <a href="#/login" class="button">Login</a>
-    <a href="#/register" class="button">Register</a>
-</div>
-
 <div ng-if="authService.isNormalUser()" class="box">
     <h2>Navigation</h2>
     <ul class="sidebar-menu">

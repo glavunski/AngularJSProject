@@ -1,7 +1,16 @@
+<nav class="navbar navbar-default navbar-static-top">
+<div class="container-fluid" >
+    <p ng-if="authService.isLoggedIn()" class="navbar-text">
+        <strong>{{authService.getCurrentUser().username}}</strong>
+    </p>
+    <ul class="nav navbar-nav navbar-right">
+        <li ng-if="authService.isAnonymous()"><a href="#/login">Login</a></li>
+        <li ng-if="authService.isAnonymous()"><a href="#/register">Register</a></li>
+        <li ng-if="authService.isLoggedIn()"><a>Logout</a></li>
+    </ul>
 
-<div id="navbar" class="navbar navbar-inverse navbar-static-top">
-    <div class="navbar-brand">Ads</div>
 </div>
+</nav>
 <!-- 
 
 TODO: 

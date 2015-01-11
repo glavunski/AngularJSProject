@@ -1,4 +1,23 @@
 <div class="box">
     <h2>Login</h2>
-    TODO
+    <div class="row">
+        <div class="col-md-1">
+            <label for="username">Username:</label>
+        </div>
+        <div class="col-md-4">
+            <input type="text" id="username" ng-model="userData.username" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <label for="password">Password:</label>
+        </div>
+        <div class="col-md-4 ">
+            <input type="password" id="password" ng-model="userData.password" required />
+        </div>
+    </div>
+    <div class="row">
+        <a ng-click="login(userData)" class="button">Login</a>
+        <a href="#/register" class="link">Register</a>
+    </div>
 </div>
