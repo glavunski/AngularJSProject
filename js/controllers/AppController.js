@@ -1,8 +1,13 @@
 'use strict';
 
 app.controller('AppController',
-    function ($scope, authService) {
-        // Put the authService in the $scope to make it accessible from all screens
+    function ($scope, authService, notifyService,$location) {
         $scope.authService = authService;
+
+        $scope.logout = function(){
+            authService.logout();
+            notifyService.showInfo('Successfully logged out');
+            $location.path("/");
+        }
     }
 );

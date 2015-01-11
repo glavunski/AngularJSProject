@@ -6,20 +6,9 @@
     <ul class="nav navbar-nav navbar-right">
         <li ng-if="authService.isAnonymous()"><a href="#/login">Login</a></li>
         <li ng-if="authService.isAnonymous()"><a href="#/register">Register</a></li>
-        <li ng-if="authService.isLoggedIn()"><a>Logout</a></li>
+        <li ng-if="authService.isAdmin()"><a href="#/login">Admin</a></li>
+        <li ng-if="authService.isLoggedIn()" ng-click="logout()"><a>Logout</a></li>
     </ul>
 
 </div>
 </nav>
-<!-- 
-
-TODO: 
-
-1) Implement logic to show different app header for:
-    - anonymous site visitors
-    - logged in users
-    - logged in administrators
-
-2) Implement logic to show different title for different screens
-    
--->

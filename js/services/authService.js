@@ -29,7 +29,6 @@ app.factory('authService',
 
             logout: function() {
                 delete sessionStorage['currentUser'];
-                location.redirectTo('/');
             },
 
             getCurrentUser : function() {
@@ -48,11 +47,17 @@ app.factory('authService',
             },
 
             isNormalUser : function() {
-
+                var userObject = sessionStorage['currentUser'];
+                if (userObject) {
+                    return (JSON.parse(sessionStorage['currentUser']).isAdmin == undefined);
+                }
             },
 
             isAdmin : function() {
-                // TODO
+                var userObject = sessionStorage['currentUser'];
+                if (userObject) {
+                    return (JSON.parse(sessionStorage['currentUser']).isAdmin != undefined);
+                }
             },
 
             getAuthHeaders : function() {
