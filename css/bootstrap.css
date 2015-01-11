@@ -4259,7 +4259,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   border-color: #1967be;
 }
 .navbar-inverse .navbar-brand {
-  color: #ffffff;
+  color:#000000;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
@@ -4661,7 +4661,7 @@ a.badge:focus {
   padding: 4px;
   margin-bottom: 21px;
   line-height: 1.42857143;
-  background-color: #ffffff;
+  background-color: #C5E0B4;
   border: 1px solid #dddddd;
   border-radius: 0;
   -webkit-transition: border 0.2s ease-in-out;
