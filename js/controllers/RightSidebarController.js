@@ -2,7 +2,7 @@
 
 // The RightSidebarController controls the content displayed in the right sidebar
 app.controller('RightSidebarController',
-    function ($scope, categoriesService, townsService) {
+    function ($scope, $rootScope, categoriesService, townsService) {
         categoriesService.getCategories(
             function success(data){
                 $scope.categories = data;
@@ -19,8 +19,17 @@ app.controller('RightSidebarController',
             function error(err){
                 notifyService.showError("Error loading towns",err);
             }
-        )
+        );
 
+        $scope.categoryClicked = function(clickedCategoryId) {
+            $scope.selectedCategoryId = clickedCategoryId;
+            $rootScope.$broadcast("categorySelectionChanged", clickedCategoryId);
+        };
+
+        $scope.townClicked = function(clickedTownId) {
+            $scope.selectedTownId = clickedTownId;
+            $rootScope.$broadcast("townSelectionChanged", clickedTownId);
+        };
 
     }
 );

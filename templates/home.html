@@ -1,18 +1,30 @@
 <nav id="pagination">
     <ul class="pagination">
         <li>
+            <a href="#/" aria-label="First"  ng-click="loadPage(1)">
+                <span aria-hidden="true">First</span>
+            </a>
+        </li>
+
+        <li ng-class="{'disabled': adsParams.startPage - 1 == 0}">
             <a href="#/" aria-label="Previous"  ng-click="loadPage(adsParams.startPage-1)">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
 
-        <li ng-repeat="i in numPages" >
+        <li ng-repeat="i in pagesArray" ng-class="{'active': i == adsParams.startPage}" >
             <a href="#/" ng-click="loadPage(i)">{{i}}</a>
         </li>
 
-        <li>
+        <li ng-class="{'disabled': adsParams.startPage + 1 == allPages + 1 }">
             <a href="#/" aria-label="Next" ng-click="loadPage(adsParams.startPage+1)">
                 <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#/" aria-label="Last"  ng-click="loadPage(allPages)">
+                <span aria-hidden="true">Last</span>
             </a>
         </li>
     </ul>
@@ -29,7 +41,7 @@
                         </a>
             </div>
         <div class="col-xs-9">
-            {{ad.text}}
+            <div class="adcontent">{{ad.text}}</div>
         </div>
         <div class="col-xs-9">
             <strong>Name : </strong>{{ad.ownerName}}

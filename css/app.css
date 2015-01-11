@@ -183,6 +183,7 @@ ul.sidebar-menu li a, ul.sidebar-menu li a:focus {
     background: #A9D18E;
     border: #507E32 1px solid;
 }
-.ad-text{
-    background: #C5E0B4;
+.adcontent{
+    border: 1px dotted darkgreen;
+    background-color: #C5E0B4;
 }

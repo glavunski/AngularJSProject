@@ -12,23 +12,24 @@ app.factory('authService',
             },
 
             logout: function() {
-                // TODO
+                delete sessionStorage['currentUser'];
+                location.redirectTo('/');
             },
 
             getCurrentUser : function() {
-                // TODO
+                return sessionStorage['currentUser'];
             },
 
             isAnonymous : function() {
-                // TODO
+                return sessionStorage['currentUser'] == null;
             },
 
             isLoggedIn : function() {
-                // TODO
+                return sessionStorage['currentUser'] != null;
             },
 
             isNormalUser : function() {
-                // TODO
+
             },
 
             isAdmin : function() {
